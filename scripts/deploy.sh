@@ -38,41 +38,59 @@ usage() {
     exit 1
 }
 
+start_services() {
+    local dev_mode=false
+    local services=()
+    
+    # Process arguments
+    while [[ $# -gt 0 ]]; do
+        case "$1" in
+            --dev)
+                dev_mode=true
+                shift
+                ;;
+            *)
+                # Start service with current dev_mode setting
+                if [ -z "$1" ]; then
+                    break
+                fi
+                start_service "$1" "$dev_mode"
+                shift
+                ;;
+        esac
+    done
+}
+
+stop_services() {
+    if [ $# -eq 0 ]; then
+        # Stop all services in reverse order
+        for ((i=${#ALL_SERVICES[@]}-1; i>=0; i--)); do
+            stop_service "${ALL_SERVICES[i]}"
+        done
+    else
+        # Stop specific services
+        for service in "$@"; do
+            stop_service "$service"
+        done
+    fi
+}
+
 # Main execution
 if [ $# -eq 0 ]; then
     usage
 elif [ "$1" = "start" ]; then
     shift
-    dev_mode=false
-    if [ "$1" = "--dev" ]; then
-        dev_mode=true
-        shift
-    fi
     if [ $# -eq 0 ]; then
-        start_all_services "$dev_mode"
-    else
-        for service in "$@"; do
-            start_service "$service" "$dev_mode"
+        # Start all services normally
+        for service in "${ALL_SERVICES[@]}"; do
+            start_service "$service" false
         done
+    else
+        start_services "$@"
     fi
 elif [ "$1" = "stop" ]; then
     shift
-    if [ $# -eq 0 ]; then
-        stop_all_services
-    else
-        for service in "$@"; do
-            stop_service "$service"
-        done
-    fi
-elif [ "$1" = "build" ]; then
-    shift
-    if [ $# -eq 0 ]; then
-        build_all_images
-    else
-        for image in "$@"; do
-            build_image "$image"
-        done
-    fi
+    stop_services "$@"
 else
     usage
 fi

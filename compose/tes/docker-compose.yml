@@ -43,7 +43,7 @@ services:
   tes-server:
     image: tes-server
     volumes:
-      - ../../config/ipython:/usr/local/share/ipython
+      - ${BEAMLINE_PODS_DIR}/config/ipython:/usr/local/share/ipython
       - /tmp/data:/data
       - /tmp/.scan_server:/root/.scan_server
       - ${HOME}/work/nsls-ii-sst:/usr/local/src/nsls-ii-sst
