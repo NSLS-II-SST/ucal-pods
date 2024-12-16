@@ -1,7 +1,6 @@
 services:
   acq_qs:
     volumes:
-      - ${BEAMLINE_PODS_DIR}/config/ipython:/usr/local/share/ipython
       - ${SSTDIR}:/usr/local/src/nsls-ii-sst
       - ${NBSDIR}:/usr/local/src/xraygui
       - ${HOME}/work/ophyd:/usr/local/src/ophyd
