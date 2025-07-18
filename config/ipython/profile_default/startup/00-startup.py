@@ -5,7 +5,11 @@ from bluesky.plan_stubs import mv as _mv, mvr as _mvr
 load_and_configure_everything()
 
 nslsii.configure_base(
-    get_ipython().user_ns, "nbs", publish_documents_with_kafka=False, bec=False
+    get_ipython().user_ns,
+    "nbs",
+    publish_documents_with_kafka=False,
+    bec=False,
+    pbar=False,
 )
 
 
@@ -24,3 +28,5 @@ RE(psh7.open())
 manipz.velocity.set(100)
 RE(mv(manipz, 464))
 manipz.velocity.set(1)
+
+print("Done with 00-startup.py")
