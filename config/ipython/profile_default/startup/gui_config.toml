@@ -2,7 +2,7 @@
 header = "nbs-gui-header"
 
 [gui.tabs]
-include = ["nbs-gui-queue", "nbs-gui-console", "kafka-table-tab", "nbs-gui-monitor", "sst-gui-samples", "ucal-tes-tab", "sst-gui-testing"]
+include = ["nbs-gui-queue", "nbs-gui-console", "kafka-table-tab", "nbs-gui-monitor", "sst-gui-samples", "ucal-tes-tab", "sst-gui-fasstcat"]
 
 [gui.plans]
 include = [

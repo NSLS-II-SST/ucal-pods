@@ -4,10 +4,9 @@ services:
       - ${HOME}/work/nsls-ii-sst:/usr/local/src/nsls-ii-sst
       - ${HOME}/work/xraygui:/usr/local/src/xraygui
       - ${HOME}/work/ophyd:/usr/local/src/ophyd
-
+      - ${BEAMLINE_PODS_DIR}/config/ipython:/usr/local/share/ipython
     command: >
       bash -c "
-        pip3 install --no-deps --no-build-isolation -e /usr/local/src/ophyd &&
         pip3 install --no-deps --no-build-isolation -e /usr/local/src/nsls-ii-sst/bluesky-widgets &&
         pip3 install --no-deps --no-build-isolation -e /usr/local/src/xraygui/nbs-core &&
         pip3 install --no-deps --no-build-isolation -e /usr/local/src/xraygui/nbs-bl &&
