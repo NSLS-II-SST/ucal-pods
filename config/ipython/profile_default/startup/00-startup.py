@@ -7,7 +7,7 @@ load_and_configure_everything()
 nslsii.configure_base(
     get_ipython().user_ns,
     "nbs",
-    publish_documents_with_kafka=False,
+    publish_documents_with_kafka=True,
     bec=False,
     pbar=False,
 )

@@ -3,13 +3,10 @@ services:
     volumes:
       - ${SSTDIR}:/usr/local/src/nsls-ii-sst
       - ${NBSDIR}:/usr/local/src/xraygui
-      - ${HOME}/work/ophyd:/usr/local/src/ophyd
       - ${BEAMLINE_PODS_DIR}/config/ipython:/usr/local/share/ipython
     command: >
       bash -c "
-        pip3 install --no-deps --no-build-isolation -e /usr/local/src/xraygui/nbs-core &&
         pip3 install --no-deps --no-build-isolation -e /usr/local/src/xraygui/nbs-bl &&
-        pip3 install --no-deps --no-build-isolation -e /usr/local/src/xraygui/livetable &&
         pip3 install --no-deps --no-build-isolation -e /usr/local/src/nsls-ii-sst/sst_base &&
         pip3 install --no-deps --no-build-isolation -e /usr/local/src/nsls-ii-sst/sst_tes &&
         pip3 install --no-deps --no-build-isolation -e /usr/local/src/nsls-ii-sst/ucal &&
