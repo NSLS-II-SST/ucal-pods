@@ -1,5 +1,5 @@
 [fasstcat]
-_target = "sst_base.fasstcat.Fasstcat"
+_target = "sst_fasstcat.fasstcat.Fasstcat"
 prefix = "XF:07ID1-ES{Fasstcat:"
 name = "fasstcat"
 

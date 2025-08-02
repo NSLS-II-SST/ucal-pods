@@ -18,6 +18,7 @@ include = [
     "manual-sample-move"
 ]
 
+
 [models.beamline]
 primary_energy = "en"
 primary_manipulator = "manipulator"
@@ -53,7 +54,7 @@ tes = { "_group" = "misc" }
 "FMBOQuadSlits" = "sst_base.qt.models.quadSlits.QuadSlitsModel"
 "TESMCAFactory" = "ucal.qt.models.tesModel.TESModel"
 "WienerPSFactory" = "nbs_gui.models.MotorTupleModel"
-"Fasstcat" = "sst_base.qt.models.fasstcat.FasstcatModel"
+"Fasstcat" = "sst_fasstcat.qt.models.fasstcat.FasstcatModel"
 
 [kafka]
 config_file = "/etc/bluesky/kafka.yml"

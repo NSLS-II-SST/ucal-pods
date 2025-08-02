@@ -11,5 +11,6 @@ services:
         pip3 install --no-deps --no-build-isolation -e /usr/local/src/nsls-ii-sst/sst_tes &&
         pip3 install --no-deps --no-build-isolation -e /usr/local/src/nsls-ii-sst/ucal &&
         pip3 install --no-deps --no-build-isolation -e /usr/local/src/nsls-ii-sst/ucal_sim &&
+        pip3 install --no-deps --no-build-isolation -e /usr/local/src/nsls-ii-sst/sst-fasstcat &&
         start-re-manager --keep-re --redis-addr redis:6379 --zmq-publish-console ON --use-ipython-kernel ON --ipython-kernel-ip auto --startup-profile default
       "
